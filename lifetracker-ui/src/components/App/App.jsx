@@ -1,4 +1,5 @@
-import Landing from "components/Landing/Landing"
+import LandingPage from "components/LandingPage/LandingPage"
+import LoginPage from "components/LoginPage/LoginPage"
 import Navbar from "components/Navbar/Navbar"
 import RegistrationPage from "components/RegistrationPage/RegistrationPage"
 import * as React from "react"
@@ -14,12 +15,12 @@ export default function App() {
           <Routes>
             <Route path="/" element={(
               <>
-              <Landing />
+              <LandingPage />
               </>
             )}/>
             <Route path="/login" element={(
               <>
-              <Landing />
+              <LoginPage />
               </>
             )}/>
             

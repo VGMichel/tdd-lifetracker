@@ -140,7 +140,7 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] Create an **`auth`** context:
 
     - [x] First, create a `contexts` directory at the root of the project
-    - [ ] Inside it, touch the `contexts/auth.jsx` file
+    - [x] Inside it, touch the `contexts/auth.jsx` file
     - [ ] In that file, define a new `AuthContext` with `React.createContext`
     - [ ] Use that context to create an `AuthContextProvider` component
       - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
@@ -170,22 +170,22 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Should render JSX that is wrapped by an element with the `className` of `loading`
     - [ ] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
 
-  - [ ] The **`Navbar.jsx`** component
+  - [x] The **`Navbar.jsx`** component
 
-    - [ ] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
-    - [ ] Should render the app's logo:
-      - [ ] It should be an element with the `className` of `logo`.
-      - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-      - [ ] Inside that `Link` component should be the application's logo (text or image)
-    - [ ] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
+    - [x] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
+    - [x] Should render the app's logo:
+      - [x] It should be an element with the `className` of `logo`.
+      - [x] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+      - [x] Inside that `Link` component should be the application's logo (text or image)
+    - [x] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
 
   - [ ] The **`NavLinks.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with a `className` of `nav-links`
-    - [ ] Should render a `Link` element from `react-router-dom` for:
-      - [ ] The `/activity` route. It should have a label of `Activity`.
-      - [ ] The `/nutrition` route. It should have a label of `Nutrition`.
-      - [ ] A route for any other resource page
+    - [x] Should render JSX that is wrapped by an element with a `className` of `nav-links`
+    - [x] Should render a `Link` element from `react-router-dom` for:
+      - [x] The `/activity` route. It should have a label of `Activity`.
+      - [x] The `/nutrition` route. It should have a label of `Nutrition`.
+      - [x] A route for any other resource page
     - [ ] If a valid user is logged in:
       - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
         - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
@@ -195,10 +195,10 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `password`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-form`
+    - [x] Should render an input element for the following fields:
+      - [x] `email`
+      - [x] `password`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
       - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
@@ -215,25 +215,25 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-page`
     - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `username`
-      - [ ] `firstName`
-      - [ ] `lastName`
-      - [ ] `password`
-      - [ ] `passwordConfirm`
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
+    - [x] Should render JSX that is wrapped by an element with the `className` of `registration-form`
+    - [x] Should render an input element for the following fields:
+      - [x] `email`
+      - [x] `username`
+      - [x] `firstName`
+      - [x] `lastName`
+      - [x] `password`
+      - [x] `passwordConfirm`
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [x] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [x] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
       - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
@@ -248,16 +248,16 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`RegistrationPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `registration-page`
     - [ ] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
   - [ ] The **`LandingPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
-    - [ ] Should render an element with the `className` of `hero`
-      - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `landing-page`
+    - [x] Should render an element with the `className` of `hero`
+      - [x] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
       - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [ ] Should allow unauthenticated access
 
