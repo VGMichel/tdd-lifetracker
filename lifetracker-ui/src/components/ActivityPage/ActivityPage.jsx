@@ -3,6 +3,8 @@ import "./ActivityPage.css"
 
 export default function ActivityPage() {
   return (
-    <div className="activity-page">Activity Page</div>
+    <div className="activity-page">
+      <p>Activity Page</p>
+    </div>
   )
 }

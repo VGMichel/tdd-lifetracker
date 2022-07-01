@@ -21,3 +21,14 @@
  .landing-page .hero img {
     position: absolute;
  }
+
+ .cta {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: 40px;
+   margin-top: 30px;
+   padding: 0;
+   margin: 0;
+ }

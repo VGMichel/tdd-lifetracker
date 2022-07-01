@@ -1,0 +1,9 @@
+.actvity-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-page p {
+    font-size: 20px;
+}
