@@ -114,15 +114,15 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `/` - Should render the `Landing.jsx` component
       - [x] `/login` - Should render the `LoginPage.jsx` component
       - [x] `/register` - Should render the `RegistrationPage.jsx` component
-      - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
-      - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
-      - [ ] `*` - anything else should render the `NotFound` component
+      - [x] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
+      - [x] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
+      - [x] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
     - [ ] Start by creating a `constants.js` file at the root of the project
       - [ ] In it, export a few variables:
-      - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
-      - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
+      - [x] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
+      - [x] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
       - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
     - [ ] Next, create a `services` directory at the root of the project
     - [ ] Inside that directory, touch an `apiClient.js` file
@@ -141,7 +141,7 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [x] First, create a `contexts` directory at the root of the project
     - [x] Inside it, touch the `contexts/auth.jsx` file
-    - [ ] In that file, define a new `AuthContext` with `React.createContext`
+    - [x] In that file, define a new `AuthContext` with `React.createContext`
     - [ ] Use that context to create an `AuthContextProvider` component
       - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
       - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
@@ -187,11 +187,11 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] The `/nutrition` route. It should have a label of `Nutrition`.
       - [x] A route for any other resource page
     - [ ] If a valid user is logged in:
-      - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
+      - [x] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
         - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
-    - [ ] If no valid user is logged in:
-      - [ ] It should render a `Link` element that redirects to the `/login` route with the label `Login`
-      - [ ] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
+    - [x] If no valid user is logged in:
+      - [x] It should render a `Link` element that redirects to the `/login` route with the label `Login`
+      - [x] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
   - [ ] The **`LoginForm.jsx`** component:
 
@@ -199,9 +199,9 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] Should render an input element for the following fields:
       - [x] `email`
       - [x] `password`
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [x] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
       - [ ] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
@@ -209,8 +209,8 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] The component should gracefully handle errors:
       - [ ] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the `className` of `error` indicating that the `email` and `password` combination is incorrect.
       - [ ] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the `className` of `error` indicating what went wrong.
-    - [ ] There should be a `button` element with the `className` of `submit-login`:
-      - [ ] It should contain the text `"Login"`
+    - [x] There should be a `button` element with the `className` of `submit-login`:
+      - [x] It should contain the text `"Login"`
       - [ ] When clicked, it should call the `loginUser` function
 
   - [ ] The **`LoginPage.jsx`** component:
@@ -242,9 +242,9 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] The component should gracefully handle errors:
       - [ ] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
       - [ ] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
-    - [ ] There should be a `button` element with the `className` of `submit-registration`:
-      - [ ] It should contain the text `"Create Account"`
-      - [ ] When clicked, it should call the `signupUser` function
+    - [x] There should be a `button` element with the `className` of `submit-registration`:
+      - [x] It should contain the text `"Create Account"`
+      - [x] When clicked, it should call the `signupUser` function
 
   - [ ] The **`RegistrationPage.jsx`** component:
 

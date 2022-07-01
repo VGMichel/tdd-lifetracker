@@ -11,6 +11,11 @@ export default function RegistrationPage() {
 }
 
 export function RegistrationForm() {
+
+  const signupUser = () => {
+
+  }
+
   return (
     <div className="registration-page">
       <div className="card">
@@ -40,7 +45,7 @@ export function RegistrationForm() {
             <label for="passwordConfirm">Confirm Password</label>
             <input className="form-input" type="password" name="passwordConfirm" placeholder="Confirm your password" />
           </div>
-          <button className="btn">Register</button>
+          <button className="submit-registration btn" /*onClick={signupUser}*/>Create Account</button>
         </div>
         <div className="footer">
           <p>Already have an account? Login <Link className="auth-link" to='/login'>here.</Link></p>
