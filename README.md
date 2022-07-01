@@ -284,7 +284,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`ActivityPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `activity-page`
     - [ ] It should call the `useActivityContext` hook and extract all the necessary data from it.
     - [ ] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
     - [ ] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
@@ -341,7 +341,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
     - [ ] Should render a nested `Routes` component from `react-router-dom`.
       - [ ] There should be multiple `Route` components:
         - [ ] The `/nutrition` route should render the `NutritionOverview.jsx` component
