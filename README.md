@@ -47,15 +47,15 @@ Implement any of the following features to improve the application:
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Yes, I feel like the labs provide good preparation for the weekly project. Everything that I was able to learn was understandable and made sense. Had I had more time this week to study and immerse myself ineach lab, I would feel like I would have an even better understanding of the material. I felt confident to complete some parts of the weekly project with what I was able to learn through the labs.]
+Yes, I feel like the labs provide good preparation for the weekly project. Everything that I was able to learn was understandable and made sense. Had I had more time this week to study and immerse myself ineach lab, I would feel like I would have an even better understanding of the material. I felt confident to complete some parts of the weekly project with what I was able to learn through the labs.
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-[If I had more time, I would like to play with and implement the back-end/database and complete some stretch features. The content for this week was easily digestable and easy to practice/replicate. This is one project out of many that I will go back to work on after this program.]
+If I had more time, I would like to play with and implement the back-end/database and complete some stretch features. The content for this week was easily digestable and easy to practice/replicate. This is one project out of many that I will go back to work on after this program.
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Page access/permissions on the front-end, forms and form error handling worked well. I haven't yet come across something that hasn't gone as planned for now, but I had some issues with page acess and laying out a ternary operator to handle it. I noticed one of my peers added a 'Log In' button to the 'Access Denied' page, which is good for user experience. I will definitely implement that.]
+Page access/permissions on the front-end, forms and form error handling worked well. I haven't yet come across something that hasn't gone as planned for now, but I had some issues with page acess and laying out a ternary operator to handle it. I noticed one of my peers added a 'Log In' button to the 'Access Denied' page, which is good for user experience. I will definitely implement that.
 
 ### Open-source libraries used
 
@@ -65,4 +65,4 @@ Implement any of the following features to improve the application:
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[I'd like to give a shoutout to my mentor Andrew for showing up to our pod sync and really helping us out passed the time he was supposed to, and offering up great tips and suggestions for our capstone project.]
+I'd like to give a shoutout to my mentor Andrew for showing up to our pod sync and really helping us out passed the time he was supposed to, and offering up great tips and suggestions for our capstone project.
