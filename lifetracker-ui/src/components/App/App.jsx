@@ -1,23 +1,37 @@
 import * as React from "react"
+import { useState } from "react"
 import ActivityPage from "components/ActivityPage/ActivityPage"
 import LandingPage from "components/LandingPage/LandingPage"
 import LoginPage from "components/LoginPage/LoginPage"
 import Navbar from "components/Navbar/Navbar"
 import NotFound from "components/NotFound/NotFound"
+import NutritionOverview from "components/NutritionOverview/NutritionOverview"
 import NutritionPage from "components/NutritionPage/NutritionPage"
+import NutritionNew from "components/NutritionNew/NutritionNew"
+import NutritionDetail from "components/NutritionDeail/NutritionDetail"
 import ExercisePage from "components/ExercisePage/ExercisePage"
 import RegistrationPage from "components/RegistrationPage/RegistrationPage"
+import SleepPage from "components/SleepPage/SleepPage"
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { AuthProvider } from "components/contexts/auth"
+import { AuthContextProvider } from "components/contexts/auth"
+import { useAuth } from "components/contexts/auth"
 import "./App.css"
-import SleepPage from "components/SleepPage/SleepPage"
+
+//export default function AppContainer() {
+//  return(
+//    <AuthContextProvider>
+//      <App />
+//    </AuthContextProvider>
+//  )
+// }
 
 export default function App() {
+  
   return (
     <div className="app">
       <React.Fragment>{
-        <AuthProvider>
+        <AuthContextProvider>
         <BrowserRouter>
             <Navbar />
             <Routes>
@@ -27,12 +41,16 @@ export default function App() {
               <Route path="*" element={<NotFound />}/>
               <Route path="/activity" element={<ActivityPage />}/>
               <Route path="/exercise" element={<ExercisePage />}/>
-              <Route path="/nutrition" element={<NutritionPage />}/>
+              <Route path="/nutrition" element={<NutritionPage />}>
+                <Route path="create" element={<NutritionNew />}/>
+                <Route path="id/:nutritionId" element={<NutritionDetail />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
               <Route path="/sleep" element={<SleepPage />}/>
               <Route path="/access-forbidden" element={<AccessForbidden />}/>
             </Routes>
         </BrowserRouter>
-        </AuthProvider>
+        </AuthContextProvider>
       }</React.Fragment>
     </div>
   )

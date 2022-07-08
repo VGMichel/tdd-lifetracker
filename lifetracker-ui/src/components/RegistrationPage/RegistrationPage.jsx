@@ -37,6 +37,7 @@ export function RegistrationForm() {
   const signupUser = (e) => {
     e.preventDefault();
     setErrors(validation(values))
+    navigate('/')
   }
 
   return (

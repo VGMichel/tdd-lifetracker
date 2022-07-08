@@ -1,6 +1,8 @@
 import * as React from "react"
+import { Component } from "react"
 import Logo from "components/Logo/Logo"
-import { Link, useNavigate } from "react-router-dom"
+import AccessForbidden from "components/AccessForbidden/AccessForbidden"
+import { Link, useNavigate, Navigate } from "react-router-dom"
 import { useAuth } from "components/contexts/auth"
 import "./Navbar.css"
 

@@ -2,8 +2,11 @@ import React, { createContext, useContext, useState } from 'react'
 
 const AuthContext = createContext(null);
 
-export const AuthProvider = ({children}) => {
+export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [initialized, setInitialized] = useState([])
+    const [isLoading, setIsLoading] = useState('')
+    const [error, setError] = useState(null)
 
     const login = (user) => {
         setUser(user)
