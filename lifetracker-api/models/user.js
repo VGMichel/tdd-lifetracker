@@ -17,6 +17,8 @@ class User {
 
     }
 
+    /////// LOG IN METHOD
+
     static async login(credentials) {
         // User should submit email and password
         // If fields are missing, throw error
@@ -42,6 +44,8 @@ class User {
 
         throw new UnauthorizedError("Invald username/email")
     }
+
+    ///// REGISTER METHOD
 
     static async register(credentials) {
         const requiredFields = ["email", "username", "firstName", "lastName", "password"]
