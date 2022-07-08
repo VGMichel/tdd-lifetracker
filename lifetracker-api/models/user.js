@@ -1,16 +1,46 @@
 const db = require("../db")
 const bcrypt = require("bcrypt")
 const { BCRYPT_WORK_FACTOR } =require("../config")
-const { BadRequestError, UanuthorizedError } = require("../utils/errors")
+const { BadRequestError, UnauthorizedError } = require("../utils/errors")
 
 class User {
+    static async makePublicUser(user) {
+        return {
+            id: user.id,
+            email: user.email,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            createdAt: user.created_at,
+            updatedAt: user.updated_at
+        }
+        
+
+    }
+
     static async login(credentials) {
         // User should submit email and password
         // If fields are missing, throw error
-        //
-        // look up user in db
+        const requiredFields = ["email", "password"]
+        requiredFields.forEach(field => {
+            if(!credentials.hasOwnProperty(field)) {
+                throw new BadRequestError(`Missing ${field} in request body`)
+            }
+        })
 
-        throw new UanuthorizedError("Invald username/email")
+        // Look up user in db
+        const user = await User.fetchUserByEmail(credentials.email)
+
+        // If user is found, compare submitted password
+        // with password in db
+        // If there is a match, return user
+        if (user) {
+            const isValid = await bcrypt.compare(credentials.password, user.password)
+            if (isValid) {
+                return User.makePublicUser(user)
+            }
+        }
+
+        throw new UnauthorizedError("Invald username/email")
     }
 
     static async register(credentials) {
@@ -52,7 +82,7 @@ class User {
 
         const user = result.rows[0]
 
-        return user
+        return User.makePublicUser(user)
     }
 
     static async fetchUserByEmail(email) {
