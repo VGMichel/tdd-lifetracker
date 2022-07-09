@@ -19,8 +19,8 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 router.get("/", async (req, res, next) => {
     try {
         // List nutrition entries
-
-        return res.status(201).json({ user })
+        const nutritionPosts = await Nutrition.listNutritionForUser()
+        return res.status(200).json({ nutritionPosts })
     } catch(err) {
         next(err)
     }
@@ -29,8 +29,9 @@ router.get("/", async (req, res, next) => {
 router.get("/:nutritionId", async (req, res, next) => {
     try {
         // Fetch single nutrition post
-        const user = await User.register(req.body)
-        return res.status(201).json({ user })
+        const { nutritionId } = req.params
+        const nutrition = await Nutrition.fetchNutritionById(nutritionId)
+        return res.status(200).json({ nutrition })
     } catch(err) {
         next(err)
     }
