@@ -7,3 +7,15 @@
 .activity-page p {
     font-size: 20px;
 }
+
+.button {
+    background: var(--purple);
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    border: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    margin-right: 15px;
+}

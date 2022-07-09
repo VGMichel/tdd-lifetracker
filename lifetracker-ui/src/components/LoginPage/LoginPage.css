@@ -53,13 +53,13 @@
 }
 
 .auth-link {
-    color: var(--purple);
+    color: var(--d-pink);
     font-weight: 600;
 }
 
 .input-field label {
     margin-bottom: 5px;
-    color: var(--purple);
+    color: var(--d-pink);
     font-weight: 500;
     font-size: 15px;
     letter-spacing: 0.5px;
@@ -69,13 +69,14 @@
     height: 60px;
     padding: 0 15px;
     font-size: 16px;
-    border: 1px solid var(--purple);
+    border: 1.3px solid var(--d-pink);
+    border-radius: 5px;
     width: 100%;
-    color: var(--purple);
+    color: var(--black);
 }
 
 ::placeholder {
-    color: var(--purple);
+    color: var(--black);
     font-family: Poppins;
     font-size: 14px;
     letter-spacing: 0.6px;

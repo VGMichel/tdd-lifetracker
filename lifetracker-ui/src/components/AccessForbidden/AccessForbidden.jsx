@@ -6,14 +6,12 @@ export default function AccessForbidden() {
   return (
     <div className="access-forbidden">
       <div className="container">
-        <h1>Access Forbidden</h1>
+        <i className="material-icons af-icon">heart_broken</i>
+        <h1>You can't see this page yet.</h1>
         <p>You don't have proper access to this page.
           <br></br>
-          Login in to view the contents.
+          <Link to="/login">Login</Link> or <Link to="/register">Sign up</Link> to view the contents.
         </p>
-        <Link className="login-button" to="/login">
-          <LoginButton />
-        </Link>
       </div>
     </div>
   )

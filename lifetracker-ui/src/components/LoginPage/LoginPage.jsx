@@ -15,32 +15,20 @@ export default function LoginPage() {
 }
 
 export function LoginForm() {
-    // const [user, setUser] = useState('')
-    // const [pwd, setPwd] = useState('')
+    const [user, setUser] = useState('')
     const auth = useAuth()
     const navigate = useNavigate()
+    const [pwd, setPwd] = useState('')
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         email:  "",
         username: "",
     });
 
-    const handleChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value,
-        })
-        console.log('Test')
-  }
 
-    const loginUser = (user) => {
-        if(values.email || values.password) {
-            setErrors(validation(values))
-        } else {
-            auth.login(user)
-            navigate('/activity')
-        }
-
+    const loginUser = (e) => {
+        auth.login(user)
+        navigate('/activity')
     }
     
     return(
@@ -55,8 +43,8 @@ export function LoginForm() {
                                name="email" 
                                placeholder="user@email.com"
                                autoComplete="off"
-                               onChange={handleChange}
-                               value={values.email}
+                               onChange={(e) => {setUser(e.target.value)}}
+                               value={user}
                                required
                                />
                                {errors.email && <span className="error">{errors.email}</span>}
@@ -67,8 +55,8 @@ export function LoginForm() {
                                type="password" 
                                name="password" 
                                placeholder="•••••••"
-                               onChange={handleChange}
-                               value={values.password}
+                               onChange={(e) => {setPwd(e.target.value)}}
+                               value={pwd}
                                required
                                />
                                {errors.password && <span className="error">{errors.password}</span>}
