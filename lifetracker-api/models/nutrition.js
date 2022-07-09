@@ -46,7 +46,7 @@ class Nutrition {
                        n.calories,
                        n.image_url,
                        n.user_id,
-                       u.email,
+                       u.email AS "userEmail",
                        n.created_at,
                        n.quantity
                 FROM nutrition AS n
@@ -58,7 +58,7 @@ class Nutrition {
         const nutritionPost = results.rows[0]
 
         if(!nutritionPost) {
-            throw new NotFoundError('Not Found')
+            throw new NotFoundError('Hmm?')
         }
 
         return nutritionPost

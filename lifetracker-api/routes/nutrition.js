@@ -1,6 +1,7 @@
 const express = require("express")
 const Nutrition = require("../models/nutrition")
 const security = require("../middleware/security")
+const permissions = require("../middleware/permissions")
 const router = express.Router()
 
 
@@ -26,7 +27,7 @@ router.get("/", async (req, res, next) => {
     }
 })
 
-router.get("/:nutritionId", async (req, res, next) => {
+router.get("/:nutritionId",  permissions.authedUserOwnsNutrition, async (req, res, next) => {
     try {
         // Fetch single nutrition post
         const { nutritionId } = req.params
