@@ -41,11 +41,7 @@ export default function App() {
               <Route path="*" element={<NotFound />}/>
               <Route path="/activity" element={<ActivityPage />}/>
               <Route path="/exercise" element={<ExercisePage />}/>
-              <Route path="/nutrition" element={<NutritionPage />}>
-                <Route path="create" element={<NutritionNew />}/>
-                <Route path="id/:nutritionId" element={<NutritionDetail />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
+              <Route path="/nutrition/*" element={<NutritionPage />}/>
               <Route path="/sleep" element={<SleepPage />}/>
               <Route path="/access-forbidden" element={<AccessForbidden />}/>
             </Routes>

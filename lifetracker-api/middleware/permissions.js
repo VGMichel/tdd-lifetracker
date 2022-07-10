@@ -1,4 +1,5 @@
 const Nutrition = require("../models/nutrition")
+const User = require("../models/user")
 const { BadRequestError, ForbiddenError } = require("../utils/errors")
 
 // ensure authenticated user is owner of post
@@ -8,17 +9,18 @@ const authedUserOwnsNutrition = async (req, res, next) => {
     try {
         const { user } = res.locals
         const { nutritionId } = req.params
-        const nutritionPost = await Nutrition.fetchNutritionById(nutritionId)
+        const nutrition = await Nutrition.fetchNutritionById(nutritionId)
 
-        if  (nutritionPost.userEmail !== user.email) {
+        if  (nutrition.userEmail !== user.email) {
             throw new ForbiddenError(`You can't do that`)
         }
 
-        res.locals.nutritionPost = nutritionPost
-
+        res.locals.nutrition = nutrition
+        console.log("Testing")
         return next()
 
     } catch(err) {
+        console.log(err)
         return next(err)
     }
 }

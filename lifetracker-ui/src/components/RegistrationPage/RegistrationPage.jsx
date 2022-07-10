@@ -37,7 +37,6 @@ export function RegistrationForm() {
   const signupUser = (e) => {
     e.preventDefault();
     setErrors(validation(values))
-    navigate('/')
   }
 
   return (
@@ -69,6 +68,7 @@ export function RegistrationForm() {
           </div>
           <div className="split-input-field">
             <div className="input-field">
+              <label htmlFor="first-name">First Name</label>
               <input 
                 className="form-input" 
                 type="text" 
@@ -79,6 +79,7 @@ export function RegistrationForm() {
                 {errors.firstName && <span className="error">{errors.firstName}</span>}
             </div>
             <div className="input-field">
+              <label htmlFor="last-name">Last Name</label>
               <input 
                 className="form-input" 
                 type="text" 

@@ -1,21 +1,66 @@
-.actvity-page {
+.activity-page {
+    max-width: 100vw;
+    height: calc(100% - var(--navbar-height));
+    min-height: calc(100vh - var(--navbar-height));
+    overflow-x: hidden;
+}
+
+.activity-page .content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.activity-page, .activity-page .content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 .activity-page p {
     font-size: 20px;
 }
 
-.button {
-    background: var(--purple);
-    height: 40px;
-    color: white;
-    font-size: 20px;
+.activity-page .actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.activity-page .actions .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.activity-page .actions h2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 45px;
+    color: var(--d-pink)
+}
+
+.buttons .btn {
+    font-size: 15px;
     font-family: Poppins;
-    border: none;
     cursor: pointer;
-    padding: 10px 30px;
-    margin-right: 15px;
+    background: white;
+}
+
+.buttons .green {
+    color: var(--green);
+    border: 1.6px solid var(--green);
+}
+
+.buttons .purple {
+    color: var(--purple);
+    border: 1.6px solid var(--purple);
+}
+
+.buttons .plump {
+    color: var(--plump);
+    border: 1.6px solid var(--plump);
 }
