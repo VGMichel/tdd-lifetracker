@@ -1,21 +1,23 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, Navigate, useNavigate } from "react-router-dom"
+import apiClient from "components/services/apiClient"
 import validation from "../validate"
 import validate from "../validate"
 import "./RegistrationPage.css"
 
-export default function RegistrationPage() {
+export default function RegistrationPage({ user, setUser }) {
   return (
     <div className="registration-page">
-      <RegistrationForm />
+      <RegistrationForm user={user} setUser={setUser} />
     </div>
   )
 }
 
-export function RegistrationForm() {
+export function RegistrationForm({ user, setUser }) {
 
-  const navigate = useNavigate()
+  let navigate = useNavigate()
+  const [isProcessing, setIsProcessing] = useState(false)
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState({
     email:  "",
@@ -26,6 +28,12 @@ export function RegistrationForm() {
     passwordConfirm: ""
   });
 
+  useEffect(() => {
+    if (user?.email) {
+      navigate("/")
+    }
+  }, [user, navigate])
+
   const handleChange = (e) => {
     setValues({
       ...values,
@@ -34,9 +42,24 @@ export function RegistrationForm() {
     console.log('Test')
   }
 
-  const signupUser = (e) => {
-    e.preventDefault();
+  const signupUser = async () => {
+    setIsProcessing(true)
     setErrors(validation(values))
+
+    if (values.passwordConfirm !== values.password) {
+      setErrors(validation(values.passwordConfirm))
+      setIsProcessing(false)
+      return
+    } else {
+      setErrors((e) => ({...e, passwordConfirm: "null"}))
+    }
+
+    const { data, error } = await apiClient.signupUser({ email: values.email, username: values.username, firstName: values.firstName, lastName: values.lastName, password: values.password })
+    if (error) setErrors((e) => ({...e, values: error}))
+    if (data?.user) {
+      setUser(data.user)
+      apiClient.setToken(data.token)
+    }
   }
 
   return (

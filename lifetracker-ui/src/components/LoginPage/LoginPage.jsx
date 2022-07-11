@@ -3,21 +3,24 @@ import { Link } from "react-router-dom"
 import { useRef, useState, useEffect } from "react"
 import { useAuth } from "components/contexts/auth"
 import { useNavigate } from "react-router-dom"
+import apiClient from "components/services/apiClient"
 import validation from "../validate"
 import "./LoginPage.css"
 
-export default function LoginPage() {
+export default function LoginPage({ user, setUser }) {
   return (
     <div className="login-page">
-        <LoginForm />
+        <LoginForm user={user} setUser={setUser} />
     </div>
   )
 }
 
-export function LoginForm() {
-    const [user, setUser] = useState('')
-    const auth = useAuth()
-    const navigate = useNavigate()
+export function LoginForm({ user, setUser }) {
+
+    let navigate = useNavigate()
+
+    const [isProcessing, setIsProcessing] = useState(false)
+    //const auth = useAuth()
     const [pwd, setPwd] = useState('')
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
@@ -25,9 +28,22 @@ export function LoginForm() {
         username: "",
     });
 
+    useEffect(() => {
+    if (user?.email) {
+      navigate("/")
+    }
+  }, [user, navigate])
+
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    })
+    console.log('Test')
+  }
 
     const loginUser = (e) => {
-        auth.login(user)
+        //auth.login(user)
         navigate('/activity')
     }
     

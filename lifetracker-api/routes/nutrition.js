@@ -17,7 +17,7 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
     }
 })
 
-router.get("/", async (req, res, next) => {
+router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
     try {
         // List nutrition entries
         const nutritionPosts = await Nutrition.listNutritionForUser()
@@ -27,10 +27,11 @@ router.get("/", async (req, res, next) => {
     }
 })
 
-router.get("/:nutritionId",  permissions.authedUserOwnsNutrition, async (req, res, next) => {
+router.get("/:nutritionId", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async (req, res, next) => {
     try {
         // Fetch single nutrition post
         const { nutritionId } = req.params
+        const { user } = res.locals
         const nutrition = await Nutrition.fetchNutritionById(nutritionId)
         return res.status(200).json({ nutrition })
     } catch(err) {

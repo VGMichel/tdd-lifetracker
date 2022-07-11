@@ -58,7 +58,7 @@ class Nutrition {
         const nutritionPost = results.rows[0]
 
         if(!nutritionPost) {
-            throw new NotFoundError('Hmm?')
+            throw new NotFoundError('Not Found')
         }
 
         return nutritionPost
