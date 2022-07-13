@@ -27,7 +27,7 @@ export function LoginForm({ user, setUser }) {
 
     useEffect(() => {
     if (user?.email) {
-      navigate("/")
+      navigate("/activity")
     }
   }, [user, navigate])
 

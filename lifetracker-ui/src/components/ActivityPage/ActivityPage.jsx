@@ -45,11 +45,47 @@ export function ActivityFeed(props) {
   return (
     <div className="activity-feed">
       <div className="content">
-        <p>Activity Page</p>
-        <div className="per-category">
-          <h4>Average Calories Per Category</h4>
+        <div className="stats">
+          <div className="activity-card green">
+            <div className="per-category">
+              <h4>Average Calories Per Category</h4>
+              <SummaryStat />
+            </div>
+          </div>
+          <div className="activity-card purple">
+            <div className="per-day">
+              <h4>Total Exercise</h4>
+              <SummaryStat />
+            </div>
+          </div>
+          <div className="activity-card plump">
+            <div className="per-day">
+              <h4>Average Sleep Hours</h4>
+              <SummaryStat />
+            </div>
+          </div>
         </div>
-        <div className="per-day"></div>
+        {/* More Stats */}
+        <div className="more-stats">
+          <div className="activity-card green">
+            <div className="per-day">
+              <h4>Average Calories Per Day</h4>
+              <SummaryStat />
+            </div>
+          </div>
+          <div className="activity-card purple">
+            <div className="per-day">
+              <h4>Average Exercise Intensity</h4>
+              <SummaryStat />
+            </div>
+          </div>
+          <div className="activity-card plump">
+            <div className="per-day">
+              <h4>Total Hours Slept</h4>
+              <SummaryStat />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -59,9 +95,11 @@ export function SummaryStat(props) {
   const { stat, label, substat } = props
   return (
     <div className="summary-stat">
-      <div className="primary-statistic">{/* stat */}</div>
-      <div className="stat-label">{/* label */}</div>
-      <div className="secondary-statistic">{/* substat */ }</div>
+      <div className="background">
+        <div className="primary-statistic">0</div>
+        <div className="stat-label">Label</div>
+        <div className="secondary-statistic">0</div>
+      </div>
     </div>
   )
 }

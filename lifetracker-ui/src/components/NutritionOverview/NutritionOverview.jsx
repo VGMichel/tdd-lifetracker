@@ -9,7 +9,7 @@ import "./NutritionOverview.css"
 export default function NutritionOverview({ nutriPosts }) {
 
     let navigate = useNavigate()
-    const { nutritions, error, isLoading } = useNutritionContext()
+    const { error, isLoading } = useNutritionContext()
     const createNew = () => {
         let path = '/nutrition/create'
         navigate(path)
@@ -23,17 +23,8 @@ export default function NutritionOverview({ nutriPosts }) {
                     <button className="btn" onClick={createNew}>Record Nutrition</button>
                 </Link>
             </div>
-            <div className="feed">
-        {nutritions?.length ? (
-          nutritions.map((nutrition) => <NutritionCard nutrition={nutrition} key={nutrition.id} />)
-        ) : (
-          <div className="empty">
-            <h2>Nothing here yet.</h2>
-          </div>
-        )}
-      </div>
-            {/* {error ? <h2 className="error">{error}</h2> : null}
-            {isLoading ? <Loading /> : <NutritionFeed nutriPosts={ nutriPosts } />} */}
+            {error ? <h2 className="error">{error}</h2> : null}
+            <NutritionFeed />
         </div>
     )
 }

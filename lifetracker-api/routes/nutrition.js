@@ -6,11 +6,12 @@ const router = express.Router()
 
 
 
-router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
     try {
         // Create nutrition post
         const { user } = res.locals
-        const nutrition = await Nutrition.createNutrition({ user, nutrition: req.body })
+        console.log(req.body)
+        const nutrition = await Nutrition.createNutrition({ user, nutrition: req.body.nutrition })
         return res.status(201).json({ nutrition })
     } catch(err) {
         next(err)

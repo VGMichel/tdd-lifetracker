@@ -1,6 +1,7 @@
 .nutrition-card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 360px;
     height: 220px;
     border-radius: 4px;
@@ -9,6 +10,71 @@
     background: white;
     border-radius: 20px;
     border: 2.6px solid var(--green);
-    /* box-shadow: 9px 4px 16px 5px rgba(238, 210, 204, 0.34); */
+    box-shadow: 9px 4px 16px 5px rgba(238, 210, 204, 0.34);
     cursor: pointer;
+}
+
+.nutrition-card .card-header {
+    display: flex;
+    align-items: center;
+}
+
+.nutrition-card .card-header .nutrition-name {
+    font-weight: 600;
+    font-size: 25px;
+    margin-left: 20px;
+    color: var(--green);
+}
+
+.nutrition-card .nutrition-image {
+    display: flex;
+    border-radius: 15px;
+    height: 60px;
+    width: 60px;
+}
+
+.nutrition-card .nutrition-image img {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.nutrition-card .card-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.nutrition-card .card-stats .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nutrition-card .card-stats .column p {
+    font-weight: 600;
+    color: var(--green);
+}
+
+.nutrition-card .card-stats .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nutrition-card .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.nutrition-card .meta .nutrition-category {
+    padding: 5px 8px;
+    background: var(--green);
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
 }

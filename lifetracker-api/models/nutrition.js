@@ -4,7 +4,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors")
 class Nutrition {
     static async createNutrition({ nutrition, user }) {
         // Insert new nutrition instance/submission in db
-        const requiredFields = [ "name", "category", "calories", "image_url", "quantity" ]
+        const requiredFields = [ "name", "category", "calories", "imageUrl", "quantity" ]
         requiredFields.forEach(field => {
             if(!nutrition.hasOwnProperty(field)) {
                 throw new BadRequestError(`Require field - ${field} - missing from request body.`)
@@ -30,7 +30,7 @@ class Nutrition {
                       image_url,
                       created_at;
 
-            `, [ user.email, nutrition.name, nutrition.category, nutrition.calories, nutrition.image_url, nutrition.quantity ]
+            `, [ user.email, nutrition.name, nutrition.category, nutrition.calories, nutrition.imageUrl, nutrition.quantity ]
         )
 
         return result.rows[0]

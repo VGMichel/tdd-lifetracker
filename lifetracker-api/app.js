@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 })
 // Generic error handling
 app.use((err, req, res, next) => {
-    //if (!config.IS_TESTING) console.error(err.stack)
+    if (!config.IS_TESTING) console.error(err.stack)
     const status = err.status || 500
     const message = err.message
 

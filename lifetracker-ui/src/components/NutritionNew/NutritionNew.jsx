@@ -47,6 +47,7 @@ export function NutritionForm() {
         setIsLoading(false)
 
         navigate("/nutrition")
+        console.log("test")
       } else {
         setIsLoading(false)
       }
@@ -117,7 +118,7 @@ export function NutritionForm() {
                 />
                 {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
             </div>
-            <button className="submit-nutrition btn" disabled={isLoading} onClick={() => submitNutrition}>
+            <button className="submit-nutrition btn" disabled={isLoading} onClick={submitNutrition}>
               { isLoading ? "Loading..." : "Save" }
             </button>
           </div>

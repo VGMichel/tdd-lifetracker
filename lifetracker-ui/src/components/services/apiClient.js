@@ -35,6 +35,7 @@ class ApiClient {
     }
 
     async createNutriPost(nutrition) {
+        console.log(nutrition)
         return await this.request({ endpoint: `nutrition`, method: `POST`, data: {nutrition} })
     }
 
