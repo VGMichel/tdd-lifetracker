@@ -39,7 +39,7 @@ export function RegistrationForm({ user, setUser }) {
       ...values,
       [e.target.name]: e.target.value,
     })
-    console.log('Test')
+    
   }
 
   const signupUser = async () => {
@@ -51,7 +51,7 @@ export function RegistrationForm({ user, setUser }) {
       setIsProcessing(false)
       return
     } else {
-      setErrors((e) => ({...e, passwordConfirm: "null"}))
+      setErrors((e) => ({...e, passwordConfirm: null}))
     }
 
     const { data, error } = await apiClient.signupUser({ email: values.email, username: values.username, firstName: values.firstName, lastName: values.lastName, password: values.password })
@@ -60,6 +60,8 @@ export function RegistrationForm({ user, setUser }) {
       setUser(data.user)
       apiClient.setToken(data.token)
     }
+
+    setIsProcessing(false)
   }
 
   return (
@@ -144,3 +146,5 @@ export function RegistrationForm({ user, setUser }) {
     </div>
   )
 }
+
+//test

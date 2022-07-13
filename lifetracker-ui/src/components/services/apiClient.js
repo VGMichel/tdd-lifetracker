@@ -1,15 +1,16 @@
 import axios from "axios";
-
-const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:3001"
+import { API_BASE_URL } from "../constants"
 
 class ApiClient {
     constructor(remoteHostUrl)  {
         this.remoteHostUrl = remoteHostUrl
         this.token = null
+        this.tokenName = "lifetracker_token"
     }
 
     setToken(token) {
         this.token = token
+        localStorage.setItem(this.tokenName, token)
     }
 
     async request({ endpoint, method = `GET`, data = {}}) {
@@ -33,12 +34,37 @@ class ApiClient {
         }
     }
 
+    async createNutriPost(nutrition) {
+        return await this.request({ endpoint: `nutrition`, method: `POST`, data: {nutrition} })
+    }
+
+    async listNutrition(nutrition) {
+        return await this.request({ endpoint: `nutrition`, method: `POST`, data: nutrition })
+    }
+
+    async fetchNutrition() {
+        return await this.request({ endpoint: `nutrition`, method: `GET` })
+    }
+
+    async fetchNutritionById(nutritionId) {
+        return await this.request({ endpoint: `nutrition/${nutritionId}`, method: `GET` })
+    }
+
     async loginUser(credentials) {
         return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials })
     }
 
     async signupUser(credentials) {
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials })
+    }
+
+    async fetchUserFromToken(crednetials) {
+        return await this.request({ endpoint: `auth/me`, method: `GET` })
+    }
+
+    async logoutUser() {
+        this.setToken(null)
+        localStorage.setItem(this.tokenName, "")
     }
 }
 

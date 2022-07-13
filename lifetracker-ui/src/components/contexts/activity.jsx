@@ -1,14 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { useAuth } from './auth';
+import { useAuthContext } from './auth';
+import apiClient from 'components/services/apiClient';
 
 const ActivityContext = createContext(null);
 
 export const ActivityContextProvider = ({children}) => {
-    const [activity, setActivity] = useState([])
+    const { user } = useAuthContext()
+    const [activity, setActivity] = useState({})
     const [initialized, setInitialized] = useState([])
     const [isLoading, setIsLoading] = useState('')
     const [error, setError] = useState('')
 
+    useEffect(() => {
+
+    })
+    
     const activityValue = { activity, initialized, isLoading, error }
 
     return(
@@ -18,6 +24,4 @@ export const ActivityContextProvider = ({children}) => {
     )
 }
 
-export const useActivityContext = () => {
-    return useContext(ActivityContext)
-}
+export const useActivityContext = () =>  useContext(ActivityContext)

@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
 import { useRef, useState, useEffect } from "react"
-import { useAuth } from "components/contexts/auth"
 import { useNavigate } from "react-router-dom"
 import apiClient from "components/services/apiClient"
 import validation from "../validate"
@@ -20,12 +19,10 @@ export function LoginForm({ user, setUser }) {
     let navigate = useNavigate()
 
     const [isProcessing, setIsProcessing] = useState(false)
-    //const auth = useAuth()
-    const [pwd, setPwd] = useState('')
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         email:  "",
-        username: "",
+        password: "",
     });
 
     useEffect(() => {
@@ -39,14 +36,23 @@ export function LoginForm({ user, setUser }) {
       ...values,
       [e.target.name]: e.target.value,
     })
-    console.log('Test')
+  }
+    
+
+    const loginUser = async () => {
+    setIsProcessing(true)
+    setErrors(validation(values))
+
+    const { data, error } = await apiClient.loginUser({ email: values.email, password: values.password })
+    if (error) setErrors((e) => ({...e, values: error}))
+    if (data?.user) {
+      setUser(data.user)
+      apiClient.setToken(data.token)
+    }
+
+    setIsProcessing(false)
   }
 
-    const loginUser = (e) => {
-        //auth.login(user)
-        navigate('/activity')
-    }
-    
     return(
         <div className="login-form">
             <div className="card">
@@ -59,8 +65,8 @@ export function LoginForm({ user, setUser }) {
                                name="email" 
                                placeholder="user@email.com"
                                autoComplete="off"
-                               onChange={(e) => {setUser(e.target.value)}}
-                               value={user}
+                               onChange={handleChange}
+                               value={values.email}
                                required
                                />
                                {errors.email && <span className="error">{errors.email}</span>}
@@ -71,8 +77,8 @@ export function LoginForm({ user, setUser }) {
                                type="password" 
                                name="password" 
                                placeholder="•••••••"
-                               onChange={(e) => {setPwd(e.target.value)}}
-                               value={pwd}
+                               onChange={handleChange}
+                               value={values.password}
                                required
                                />
                                {errors.password && <span className="error">{errors.password}</span>}
@@ -86,62 +92,3 @@ export function LoginForm({ user, setUser }) {
         </div>
     )
 }
-
-
-
-// export function LoginForm() {
-
-//     const [user, setUser] = useState('')
-//     const auth = useAuth()
-//     const navigate = useNavigate()
-//     const [pwd, setPwd] = useState('')
-//     const [errors, setErrors] = useState({});
-//     const [values, setValues] = useState({
-//     email:  "",
-//     password: "",
-//   });
-
-
-//     const loginUser = () => {
-//         auth.login(user)
-//         navigate('/')
-//         //setErrors(validation(values))
-//     }
-    
-//     return(
-//         <div className="login-form">
-//             <div className="card">
-//                 <h2>Login</h2>
-//                 <div className="form">
-//                     <div className="input-field">
-//                         <label htmlFor="email">Email</label>
-//                         <input className="form-input"
-//                                type="email" 
-//                                name="email" 
-//                                placeholder="user@email.com"
-//                                autoComplete="off"
-//                                onChange={(e) => {setValues(e.target.value)}}
-//                                value={values.email}
-//                                required
-//                                />
-//                     </div>
-//                     <div className="input-field">
-//                         <label htmlFor="email">Password</label>
-//                         <input className="form-input" 
-//                                type="password" 
-//                                name="password" 
-//                                placeholder="•••••••"
-//                                onChange={(e) => {setValues(e.target.value)}}
-//                                value={values.password}
-//                                required
-//                                />
-//                     </div>
-//                     <button className="submit-login btn" onClick={loginUser}>Login</button>
-//                 </div>
-//                 <div className="footer">
-//                     <p>Don't have an account? Sign up <Link className="auth-link" to='/registration'>here.</Link></p>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }

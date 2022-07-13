@@ -47,6 +47,12 @@
     gap: 50px;
 }
 
+.nav-links .content .links span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--d-pink);
+}
+
 .btn {
     border: 1px solid transparent;
     display: flex;

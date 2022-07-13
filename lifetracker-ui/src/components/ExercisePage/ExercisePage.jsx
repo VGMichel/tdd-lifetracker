@@ -1,7 +1,6 @@
 import * as React from "react"
 import Logo from "components/Logo/Logo"
 import { Link, useNavigate } from "react-router-dom"
-import { useAuth } from "components/contexts/auth"
 import "./ExercisePage.css"
 
 export default function ExercisePage() {

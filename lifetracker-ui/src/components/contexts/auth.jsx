@@ -1,28 +1,41 @@
-import React, { createContext, useContext, useState } from 'react'
+import apiClient from 'components/services/apiClient';
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const AuthContext = createContext(null);
 
-export const AuthContextProvider = ({children}) => {
-    const [user, setUser] = useState(null);
-    const [initialized, setInitialized] = useState([])
-    const [isLoading, setIsLoading] = useState('')
+export const AuthContextProvider = ({ children }) => {
+    const [user, setUser] = useState({});
+    const [initialized, setInitialized] = useState(false)
+    const [isProcessing, setIsProcessing] = useState('')
     const [error, setError] = useState(null)
 
-    const login = (user) => {
-        setUser(user)
-    }
+    const authValue = {  user, setUser }
 
-    const logout = () => {
-        setUser(null)
-    }
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data } = await apiClient.fetchUserFromToken()
+            if (data) {
+                setUser(data.user)
+            }
+            setInitialized(true)
+        }
+
+        const token = localStorage.getItem("lifetracker_token")
+        if (token) {
+            apiClient.setToken(token)
+            fetchUser()
+        } else {
+            setInitialized(true)
+        }
+
+    }, [setUser])
+
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
-            {children}
+        <AuthContext.Provider value={authValue}>
+            <>{children}</>
         </AuthContext.Provider>
     )
 }
 
-export const useAuth = () => {
-    return useContext(AuthContext)
-}
+export const useAuthContext = () => useContext(AuthContext)

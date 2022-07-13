@@ -1,9 +1,11 @@
 import * as React from "react"
+import "./NutritionDetail.css"
+import { NutritionCard } from "components/NutritionFeed/NutritionFeed"
 
 export default function NutritionDetail() {
     return(
         <div className="nutrition-detail">
-            <NutritionForm />
+            <NutritionCard />
         </div>
     )
 }

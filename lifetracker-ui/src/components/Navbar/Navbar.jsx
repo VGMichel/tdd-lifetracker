@@ -1,62 +1,50 @@
 import * as React from "react"
-import { Component } from "react"
+import { Link, useNavigate, Navigate } from "react-router-dom"
 import Logo from "components/Logo/Logo"
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
-import { Link, useNavigate, Navigate } from "react-router-dom"
-import { useAuth } from "components/contexts/auth"
 import "./Navbar.css"
 
-export default function Navbar() {
+export default function Navbar({ user, setUser, logoutUser }) {
   return (
     <div className="navbar">
         <div className="content">
             <Logo />
-            <NavLinks />
+            <NavLinks user={user} setUser={setUser} logoutUser={logoutUser} />
         </div>
     </div>
   )
 }
 
-export function NavLinks() {
+export function NavLinks({ user, setUser, logoutUser }) {
 
-  const auth = useAuth()
-  const navigate = useNavigate()
-
-  const logoutUser = () => {
-    auth.logout()
-    navigate('/')
-  }
+  // const navigate = useNavigate()
 
   return (
     <div className="nav-links">
         <div className="content">
             <ul className="links">
-                {!auth.user
-                  ? <>
-                    <li><Link to='/access-forbidden'>Activity</Link></li>
-                    <li><Link to='/access-forbidden'>Exercise</Link></li>
-                    <li><Link to='/access-forbidden'>Nutrition</Link></li>
-                    <li><Link to='/access-forbidden'>Sleep</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
-                    <li className="btn"><Link to='/registration'>Sign Up</Link></li>
-                    </>
-                  : <>
+                {user?.email ? (
+                    <>
                       <li><Link to='/activity'>Activity</Link></li>
                       <li><Link to='/exercise'>Exercise</Link></li>
                       <li><Link to='/nutrition'>Nutrition</Link></li>
                       <li><Link to='/sleep'>Sleep</Link></li>
-                      <li className="logout-button btn" onClick={logoutUser}>Log Out</li>
+                      <li><span>{user.email}</span></li>
+                      <li><Link to="/"><button className="logout-button btn" onClick={logoutUser}>Log Out</button></Link></li>
                     </>
+                ) : ( 
+                    <>
+                      <li><Link to='/access-forbidden'>Activity</Link></li>
+                      <li><Link to='/access-forbidden'>Exercise</Link></li>
+                      <li><Link to='/access-forbidden'>Nutrition</Link></li>
+                      <li><Link to='/access-forbidden'>Sleep</Link></li>
+                      <li><Link to='/login'>Login</Link></li>
+                      <li className="btn"><Link to='/registration'>Sign Up</Link></li>
+                    </>
+                )
                 }
             </ul>
         </div>
     </div>
   )
 }
-
-// !auth.user && (
-//                     <>
-//                     <li><Link to='/login'>Login</Link></li>
-//                     <li className="btn"><Link to='/registration'>Sign Up</Link></li>
-//                     </>
-//                 )

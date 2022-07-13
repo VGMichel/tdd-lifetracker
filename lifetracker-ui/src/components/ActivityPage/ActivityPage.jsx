@@ -34,6 +34,7 @@ export default function ActivityPage() {
             <button className="btn plump" onClick={navToSleep}>Log Sleep</button>
           </div>
         </div>
+        <ActivityFeed />
       </div>
     </div>
   )
@@ -45,9 +46,22 @@ export function ActivityFeed(props) {
     <div className="activity-feed">
       <div className="content">
         <p>Activity Page</p>
-        <div className="per-category"></div>
+        <div className="per-category">
+          <h4>Average Calories Per Category</h4>
+        </div>
         <div className="per-day"></div>
       </div>
+    </div>
+  )
+}
+
+export function SummaryStat(props) {
+  const { stat, label, substat } = props
+  return (
+    <div className="summary-stat">
+      <div className="primary-statistic">{/* stat */}</div>
+      <div className="stat-label">{/* label */}</div>
+      <div className="secondary-statistic">{/* substat */ }</div>
     </div>
   )
 }
