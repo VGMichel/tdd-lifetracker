@@ -16,7 +16,8 @@ export const NutritionContextProvider = ({ children }) => {
             setIsLoading(true)
 
             const { data, error } = await apiClient.fetchNutrition()
-            if (data?.nutritions) setNutritions(data.nutritions)
+            console.log(data)
+            if (data?.nutritionPosts) setNutritions(data.nutritionPosts)
             if (error) setError(error)
 
             setIsLoading(false)

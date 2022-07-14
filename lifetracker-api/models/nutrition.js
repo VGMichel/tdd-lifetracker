@@ -64,24 +64,27 @@ class Nutrition {
         return nutritionPost
     }
 
-    static async listNutritionForUser() {
+    static async listNutritionForUser(user) {
         // List nutrition submissions in db in desc order
-        const results = await db.query(
-            `
-                SELECT n.id,
-                       n.name,
-                       n.category,
-                       n.calories,
-                       n.image_url,
-                       n.user_id,
-                       u.email,
-                       n.created_at,
-                       n.quantity
-                FROM nutrition AS n
-                    JOIN users AS u ON u.id = n.user_id
-                ORDER BY n.created_at DESC
-            `
-        )
+        // const results = await db.query(
+        //     `
+        //         SELECT n.id,
+        //                n.name,
+        //                n.category,
+        //                n.calories,
+        //                n.image_url,
+        //                n.user_id,
+        //                u.email,
+        //                n.created_at,
+        //                n.quantity
+        //         FROM nutrition AS n
+        //             JOIN users AS u ON u.id = n.user_id
+        //         ORDER BY n.created_at DESC
+        //     `
+        // )
+
+        const query = `SELECT * FROM nutrition WHERE user_id = $1`
+        const results = await db.query(query, [user.id])
 
         return results.rows
     }

@@ -24,6 +24,7 @@ export default function NutritionOverview({ nutriPosts }) {
                 </Link>
             </div>
             {error ? <h2 className="error">{error}</h2> : null}
+            {/* {isLoading ? <Loading /> : <NutritionFeed />} */}
             <NutritionFeed />
         </div>
     )

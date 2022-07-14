@@ -9,8 +9,6 @@ export const AuthContextProvider = ({ children }) => {
     const [isProcessing, setIsProcessing] = useState('')
     const [error, setError] = useState(null)
 
-    const authValue = {  user, setUser }
-
     useEffect(() => {
         const fetchUser = async () => {
             const { data } = await apiClient.fetchUserFromToken()
@@ -30,7 +28,8 @@ export const AuthContextProvider = ({ children }) => {
 
     }, [setUser])
 
-
+    const authValue = {  user, setUser }
+    
     return (
         <AuthContext.Provider value={authValue}>
             <>{children}</>

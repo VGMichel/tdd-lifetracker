@@ -20,5 +20,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.18",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-plugin-react": "^7.30.1"
   }
 }

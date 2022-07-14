@@ -5,6 +5,7 @@ import "./NutritionFeed.css"
 
 export default function NutritionFeed() {
     const { nutritions } = useNutritionContext()
+    console.log(nutritions)
     return(
         <div className="nutrition-feed">
            {nutritions?.length ? (

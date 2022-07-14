@@ -42,7 +42,7 @@ function App() {
     const fetchNutriPosts = async () => {
       setIsFetching(true)
 
-      const { data, error } = await apiClient.listNutrition()
+      const { data, error } = await apiClient.fetchNutrition()
       if (data) setNutriPosts(data.nutriPosts)
       if (error) setError(error)
 
@@ -66,20 +66,13 @@ function App() {
       fetchUser()
     }
   }, [setUser])
-
-  const logoutUser = async () => {
-    await apiClient.logoutUser()
-    setUser({})
-    setNutriPosts([])
-    setError(null)
-  }
   
   return (
     <div className="app">
       <React.Fragment>{
         <AuthContextProvider>
         <BrowserRouter>
-            <Navbar user={user} setUser={setUser} logoutUser={logoutUser} />
+            <Navbar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" element={<LandingPage />}/>
               <Route path="/login" element={<LoginPage user={user} setUser={setUser} />}/>
