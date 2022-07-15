@@ -48,19 +48,19 @@ export function ActivityFeed(props) {
         <div className="stats">
           <div className="activity-card green">
             <div className="per-category">
-              <h4>Average Calories Per Category</h4>
+              <h3 className="green-title">Average Calories Per Category</h3>
               <SummaryStat />
             </div>
           </div>
           <div className="activity-card purple">
             <div className="per-day">
-              <h4>Total Exercise</h4>
+              <h3 className="purple-title">Total Exercise</h3>
               <SummaryStat />
             </div>
           </div>
           <div className="activity-card plump">
             <div className="per-day">
-              <h4>Average Sleep Hours</h4>
+              <h3 className="plump-title">Average Sleep Hours</h3>
               <SummaryStat />
             </div>
           </div>
@@ -69,19 +69,19 @@ export function ActivityFeed(props) {
         <div className="more-stats">
           <div className="activity-card green">
             <div className="per-day">
-              <h4>Average Calories Per Day</h4>
+              <h3 className="green-title">Average Calories Per Day</h3>
               <SummaryStat />
             </div>
           </div>
           <div className="activity-card purple">
             <div className="per-day">
-              <h4>Average Exercise Intensity</h4>
+              <h3 className="purple-title">Average Exercise Intensity</h3>
               <SummaryStat />
             </div>
           </div>
           <div className="activity-card plump">
             <div className="per-day">
-              <h4>Total Hours Slept</h4>
+              <h3 className="plump-title">Total Hours Slept</h3>
               <SummaryStat />
             </div>
           </div>
@@ -97,8 +97,8 @@ export function SummaryStat(props) {
     <div className="summary-stat">
       <div className="background">
         <div className="primary-statistic">0</div>
-        <div className="stat-label">Label</div>
-        <div className="secondary-statistic">0</div>
+        {/* <div className="stat-label">Label</div>
+        <div className="secondary-statistic">0</div> */}
       </div>
     </div>
   )

@@ -71,7 +71,7 @@ h4 {
 .activity-page .activity-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     width: 380px;
     height: 220px;
     border-radius: 4px;
@@ -89,9 +89,18 @@ h4 {
     margin-bottom: 15px;
 }
 
+.primary-statistic {
+    font-size: 50px;
+    color: #b7b7b7;
+}
+
 .green {
     border: 2.6px solid var(--green);
     box-shadow: 9px 4px 16px 5px rgba(238, 210, 204, 0.34);
+}
+
+.green-title {
+    color: var(--green);
 }
 
 .purple {
@@ -99,7 +108,15 @@ h4 {
     box-shadow: 9px 4px 16px 5px rgba(238, 210, 204, 0.34);
 }
 
+.purple-title {
+    color: var(--purple);
+}
+
 .plump {
     border: 2.6px solid var(--plump);
     box-shadow: 9px 4px 16px 5px rgba(238, 210, 204, 0.34);
+}
+
+.plump-title {
+    color: var(--plump);
 }

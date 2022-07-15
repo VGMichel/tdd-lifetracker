@@ -40,6 +40,9 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
+New Gifs:
+
+Old Gifs:
 ![](https://github.com/VGMichel/tdd-lifetracker/blob/main/4.gif)
 ![](https://github.com/VGMichel/tdd-lifetracker/blob/main/5.gif)
 
@@ -60,9 +63,10 @@ Page access/permissions on the front-end, forms and form error handling worked w
 ### Open-source libraries used
 
 - Add any links to open-source libraries used in your project.
+  https://eslint.org/
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-I'd like to give a shoutout to my mentor Andrew for showing up to our pod sync and really helping us out passed the time he was supposed to, and offering up great tips and suggestions for our capstone project.
+I'd like to give a shoutout to my mentor Andrew for showing up to our pod sync and really helping us out passed the time he was supposed to, and offering up great tips and suggestions for our capstone project and for looking through my project to help me fix any errors. I'd also like to give a big shout out to Amaar and Amantina for helping me get my functions working properly.
