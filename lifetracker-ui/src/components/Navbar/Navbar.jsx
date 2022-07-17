@@ -22,7 +22,7 @@ export function NavLinks({ user, setUser }) {
   const logoutUser = async () => {
     await apiClient.logoutUser()
     setUser({})
-    setError(null)
+    setError(error)
   }
 
   return (
