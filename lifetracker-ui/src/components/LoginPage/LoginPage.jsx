@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useRef, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import apiClient from "components/services/apiClient"
-import validation from "../validate"
+import validation from "components/validate"
 import "./LoginPage.css"
 
 export default function LoginPage({ user, setUser }) {
