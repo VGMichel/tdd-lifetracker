@@ -2,7 +2,7 @@
 
 Submitted by: **Valerie Michel**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+Deployed Application: [Lifetracker Deployed Site](http://lifetracker-vm.surge.sh/)
 
 ## Application Features
 
@@ -41,6 +41,9 @@ Implement any of the following features to improve the application:
 ### Walkthrough Video
 
 New Gifs:
+![](https://github.com/VGMichel/tdd-lifetracker/blob/main/6-1.gif)
+![](https://github.com/VGMichel/tdd-lifetracker/blob/main/6-2.gif)
+
 
 Old Gifs:
 ![](https://github.com/VGMichel/tdd-lifetracker/blob/main/4.gif)
