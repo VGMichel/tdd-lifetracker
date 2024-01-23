@@ -1,10 +1,13 @@
 {
+  "homepage": "http:/vgmichel.github.io/tdd-lifetracker",
   "name": "lifetracker-ui",
   "version": "0.0.1",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
-    "start": "vite start"
+    "start": "vite start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "^0.27.2",
